@@ -52,7 +52,7 @@ For example, instead of refreshing the page when a user upvotes or downvotes, we
 
 ### Pro Developer Tips
 
-* You should track your work / user stories and their progress by means of an electronic tracking application Trello is a common one, Pivotal Tracker is another
+* You should track your work / user stories and their progress by means of an electronic tracking application. Trello is a common one, Pivotal Tracker is another
 * _Optional_:  Add a chat application.  Many teams, especially those that work remotely, find it helpful to create a chat environment in either Slack, HipChat or some other technology.  Integrate this with GitHub and CI and hygeinic git behavior, you can work as well separated by miles as you might while standing in the same room together.
 
 ### Checkpoints
