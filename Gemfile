@@ -14,7 +14,7 @@ gem 'rake'
 gem 'bcrypt'
 gem 'pry'
 gem 'pry-byebug'
-gem 'faker'
+
 
 gem 'shotgun', '~>0.9.1'
 
@@ -27,5 +27,5 @@ end
 
 group :test, :development do
   gem 'factory_girl'
-  gem 'faker'
+  gem 'faker', '~> 1.7.3'
 end
