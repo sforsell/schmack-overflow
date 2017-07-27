@@ -24,6 +24,7 @@
     <%if current_user%>
       <a href="/users/<%= current_user.id %>" > Profile</a> |
       <a href="/logout">Logout</a>
+      <a href="/questions/new">Post a question</a>
     <%else%>
       <a href="/users/new">Registration</a> |
       <a href="/login/new">Login</a>

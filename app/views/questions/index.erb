@@ -1,9 +1,9 @@
 <div>
   <ul>
-<% if @questions %>
-<% @questions.each do |question| %>
-<li><a href = '/questions/<%= question.id %>'><%= question.title %></a></li>
-<% end %>
-<% end %>
+  <% if @questions %>
+    <% @questions.each do |question| %>
+      <li><a href = '/questions/<%= question.id %>'><%= question.title %></a></li>
+    <% end %>
+  <% end %>
   </ul>
 </div>
