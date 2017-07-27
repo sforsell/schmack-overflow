@@ -1,4 +1,4 @@
-get '/login/new' do
+get '/login' do
   erb :'/login/new'
 end
 
