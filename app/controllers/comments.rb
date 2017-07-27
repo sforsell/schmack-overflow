@@ -16,7 +16,7 @@ post "/answers/:id/comments" do
   answer.comments.new(user: current_user, comment: params[:comment])
 
   if answer.save
-    erb :"/questions/#{answer.question_id}"
+    redirect "/questions/#{answer.question_id}"
   else
     @errors = answer.errors.full_messages
     erb :"/questions/#{answer.question_id}"
