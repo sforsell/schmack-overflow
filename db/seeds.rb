@@ -15,4 +15,4 @@ end
 questions = []
 
 users.each do | user|
-    questions << Question.create(title: , question:  )
+    questions << Question.create(title: Faker, question:  )
