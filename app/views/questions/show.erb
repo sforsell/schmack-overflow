@@ -1,0 +1,11 @@
+<%= @question.title %>
+<% @question.comments.each do |comment| %>
+  <%= comment.comment %>
+<% end %>
+
+<% @answers.each do |answer| %>
+  <%= answer.answer %>
+  <% answer.comment.each do |comment| %>
+    <%= comment.comment %>
+  <% end %>
+<% end %>
