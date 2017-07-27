@@ -1,9 +1,24 @@
-<ul>
-<%= @question.title %>
-<br><br>
-<%if @question.comments %>
-<% @question.comments.each do |comment| %>
-  <li><%= comment.comment %></li>
+<div>
+  <h2><%= @question.title %></h2>
+  <h3><%= @question.question %></h3>
+  <%= @question.user.username %>
+
+  <ul>
+    <%if @question.comments %>
+      <% @question.comments.each do |comment| %>
+        <li><%= comment.comment%> -  <%= comment.user.username%></li>
+    <% end %>
   <% end %>
-<% end %>
-</ul>
+
+    <%if @answers %>
+      <% @answers.each do |answer| %>
+        <h3><%= answer.answer %></h3>
+        <% if answer.comments %>
+          <% answer.comments.each do |comment| %>
+          <li><%= comment.comment%> -  <%= comment.user.username%></li>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

@@ -9,8 +9,10 @@ end
 
 post '/questions' do
   question = Question.new(params[:question])
+  question.user = current_user
+  p question
   if question.save
-    redirect '/questions/<%=question.id%>'
+    redirect "/questions/#{question.id}"
   else
     @errors = question.errors.full_messages
     erb :'/questions/new'
@@ -32,7 +34,7 @@ put '/questions/:id' do
   @question.question = params[question][question]
   @question.question = params[question][title]
   if @question.save
-    redirect '/questions/<%=@question.id%>'
+    redirect "/questions/#{@question.id}"
   else
     @errors = @question.errors.full_messages
     erb :'/questions/edit'
