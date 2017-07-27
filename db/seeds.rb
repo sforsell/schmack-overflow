@@ -14,7 +14,7 @@ end
 
 questions = []
 users.each do | user|
-    questions << Question.create(title: Faker::Twitter.status, question: Faker::StarWars.quote, user: user)
+    questions << Question.create(title: Faker::FamilyGuy.quote, question: Faker::StarWars.quote, user: user)
 end
 
 answers = []
