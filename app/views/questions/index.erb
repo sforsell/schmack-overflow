@@ -2,7 +2,10 @@
   <ul>
   <% if @questions %>
     <% @questions.each do |question| %>
-      <li><a href = '/questions/<%= question.id %>'><%= question.title %></a></li>
+      <li>
+        <%= (question.votes.where(vote: true).count) - (question.votes.where(vote: false).count) %>
+        <a href = '/questions/<%= question.id %>'><%= question.title %></a>
+        <span class="smaller"><%= question.user.username %></span></li>
     <% end %>
   <% end %>
   </ul>
