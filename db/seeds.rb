@@ -14,18 +14,18 @@ end
 
 questions = []
 users.each do | user|
-    questions << Question.create(title: Faker::FamilyGuy.quote, question: Faker::StarWars.quote, user: user)
+    questions << Question.create(title: Faker::Hacker.say_something_smart, question: Faker::StarWars.quote, user: user)
 end
 
 answers = []
 3.times do
   questions.each do |question|
-    answers <<  Answer.create(user: users.sample, question: question, answer: "answer", top_answer: false)
+    answers <<  Answer.create(user: users.sample, question: question, answer: Faker::Zelda.game, top_answer: false)
   end
 end
 
 questions.each do |question|
-    answers << Answer.create(user: users.sample, question: question, answer: "answer", top_answer: true)
+    answers << Answer.create(user: users.sample, question: question, answer: Faker::Zelda.game, top_answer: true)
 end
 
  votes = [true, false]
@@ -46,5 +46,5 @@ end
 end
 
 90.times do
-  Comment.create(comment: Faker::StarWars.quote,user: users.sample, commentable_id: answers.sample.id, commentable_type: "answer")
+  Comment.create(comment: Faker::StarWars.quote,user: users.sample, commentable_id: answers.sample.id, commentable_type: "Answer")
 end
