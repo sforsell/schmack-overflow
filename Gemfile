@@ -14,7 +14,7 @@ gem 'rake'
 gem 'bcrypt'
 gem 'pry'
 gem 'pry-byebug'
-
+gem 'faker'
 
 gem 'shotgun', '~>0.9.1'
 
