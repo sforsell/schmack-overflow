@@ -3,7 +3,7 @@
   <% if @questions %>
     <% @questions.each do |question| %>
       <li>
-        <%= (question.votes.where(vote: true).count) - (question.votes.where(vote: false).count) %>
+        <%= question.score %>
         <a href = '/questions/<%= question.id %>'><%= question.title %></a>
         <span class="smaller"><%= question.user.username %></span></li>
     <% end %>
