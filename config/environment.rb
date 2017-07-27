@@ -17,6 +17,7 @@ require 'logger'
 require 'bcrypt'
 require 'pry'
 require 'pry-byebug'
+require 'faker'
 
 require 'sinatra'
 require "sinatra/reloader" if development?

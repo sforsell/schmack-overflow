@@ -1,13 +1,18 @@
 require 'faker'
 
+User.delete_all
+Questions.delete_all
+Answers.delete_all
+Votes.delete_all
+Comments.delete_all
 
+users = []
 
-5.times do
-person = {
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-  }
-person[:email] =  Faker::Internet.safe_email("#{person[:first_name]}.#{person[:last_name]}")
-contact = Contact.new(person)
-contact.save!
+20.times do
+  users << User.create(name: Faker::GameOfThrones.character, email: Faker::Interet.email, password: "password")
 end
+
+questions = []
+
+users.each do | user|
+    questions << Question.create(title: , question:  )
