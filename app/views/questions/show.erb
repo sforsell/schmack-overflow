@@ -13,10 +13,12 @@
     <%if @answers %>
       <% @answers.each do |answer| %>
         <h3><%= answer.answer %></h3>
+        <ul>
         <% if answer.comments %>
           <% answer.comments.each do |comment| %>
           <li><%= comment.comment%> -  <%= comment.user.username%></li>
           <% end %>
+        </ul>
         <% end %>
       <% end %>
     <% end %>
