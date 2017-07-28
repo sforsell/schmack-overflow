@@ -4,19 +4,28 @@
 <!-- Question  -->
 <div>
   <h3><%= @question.title %></h3>
-    <h5><%= @question.score %>  <%= @question.question %> - <em><%= @question.user.username %></em></h5>
-      <form class="" action="/questions/<%= @question.id %>/votes" method="post">
-        <%= erb :'partials/_buttons', layout: false %>
+  <div class="button-wrapper">
+    <h5><span class="score"><%= @question.score %></span>  <%= @question.question %> - <em><%= @question.user.username %></em></h5>
+      <form class="vote_button" action="/questions/<%= @question.id %>/votes" method="post">
+        <button class="up" type="submit" name="vote" value="upvote">upvote</button>
       </form>
+      <form class="vote_button" action="/questions/<%= @question.id %>/votes" method="post">
+        <button class="down "type="submit" name="vote" value="downvote">downvote</button>
+      </form>
+    </div>
 <!-- Question comments -->
     <ul>
     <%if @question.comments %>
       <% @question.comments.each do |comment| %>
-        <li><%= comment.score %>  <%= comment.comment%> -  <em><%= comment.user.username%></em></li>
-          <form class="" action="/comments/<%= comment.id %>/votes" method="post">
-            <%= erb :'partials/_buttons', layout: false %>
+        <div class="button-wrapper">
+        <li><span class="score"><%= comment.score %> </span> <%= comment.comment%> -  <em><%= comment.user.username%></em></li>
+          <form class="vote_button" action="/comments/<%= comment.id %>/votes" method="post">
+            <button class="up" type="submit" name="vote" value="upvote">upvote</button>
           </form>
-          <br>
+          <form class="vote_button" action="/comments/<%= comment.id %>/votes" method="post">
+            <button class="down "type="submit" name="vote" value="downvote">downvote</button>
+          </form>
+        </div>
         <% end %>
     <% end %>
     </ul>
@@ -26,22 +35,33 @@
       <%= erb :'partials/_comment', layout: false%>
     </form>
 
+
 <!-- Answers -->
   <h4>Answers</h4>
     <%if @answers %>
       <% @answers.each do |answer| %>
-        <h5> <%= answer.score %>  <%= answer.answer %> - <em><%=  answer.user.username %></em></h5>
-          <form class="" action="/answers/<%= answer.id %>/votes" method="post">
-              <%= erb :'partials/_buttons', layout: false %>
+      <div class="button-wrapper">
+        <h5> <span class="score"><%= answer.score %> </span> <%= answer.answer %> - <em><%=  answer.user.username %></em></h5>
+          <form class="vote_button" action="/answers/<%= answer.id %>/votes" method="post" >
+            <button class="up" type="submit" name="vote" value="upvote">upvote</button>
           </form>
+          <form class="vote_button" action="/answers/<%= answer.id %>/votes" method="post" >
+            <button class="down "type="submit" name="vote" value="downvote">downvote</button>
+          </form>
+        </div>
 <!-- Answer Commments -->
         <ul>
         <% if answer.comments %>
           <% answer.comments.each do |comment| %>
-            <li><%= comment.score%>    <%= comment.comment%> -  <em> <%= comment.user.username%></em></li>
-            <form class="" action="/comments/<%= comment.id %>/votes" method="post">
-              <%= erb :'partials/_buttons', layout: false %>
+          <div class="button-wrapper">
+            <li><span class="score"><%= comment.score%> </span> <%= comment.comment%> -  <em> <%= comment.user.username%></em></li>
+            <form class="vote_button" action="/comments/<%= comment.id %>/votes" method="post">
+              <button class="up" type="submit" name="vote" value="upvote">upvote</button>
             </form>
+            <form class="vote_button" action="/comments/<%= comment.id %>/votes" method="post">
+              <button class="down "type="submit" name="vote" value="downvote">downvote</button>
+            </form>
+          </div>
           <% end %>
         <% end %>
         </ul>
