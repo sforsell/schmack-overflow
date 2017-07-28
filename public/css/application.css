@@ -3,6 +3,10 @@
   background-color: #1c2d41;
 }
 
+h3, h2, h4, h5 {
+  color: #f26539;
+}
+
 .list-item {
   font-size: 1.4em;
   color: #9e9e9e;
