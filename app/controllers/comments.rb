@@ -19,7 +19,7 @@ post "/answers/:id/comments" do
     redirect "/questions/#{answer.question_id}"
   else
     @errors = answer.errors.full_messages
-    erb :"/questions/#{answer.question_id}"
+    erb :"/questions/show"
   end
 
 end

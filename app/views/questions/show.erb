@@ -1,30 +1,68 @@
+<!-- Question Page -->
+
+
+<!-- Question  -->
 <div>
-  <h4><%= @question.title %></h4>
-  <p><%= @question.question %> - <em><%= @question.user.username %></em></p>
-
-
-
-  <ul>
+  <h3><%= @question.title %></h3>
+    <h5><%= @question.score %>  <%= @question.question %> - <em><%= @question.user.username %></em></h5>
+      <form class="" action="/questions/<%= @question.id %>/votes" method="post">
+        <%= erb :'partials/_buttons', layout: false %>
+      </form>
+<!-- Question comments -->
+    <ul>
     <%if @question.comments %>
       <% @question.comments.each do |comment| %>
-        <li><%= comment.comment%> -  <em><%= comment.user.username%></em></li>
+        <li><%= comment.score %>  <%= comment.comment%> -  <em><%= comment.user.username%></em></li>
+          <form class="" action="/comments/<%= comment.id %>/votes" method="post">
+            <%= erb :'partials/_buttons', layout: false %>
+          </form>
+          <br>
+        <% end %>
     <% end %>
-  <% end %>
+    </ul>
+<!-- New Question Comment -->
+    <form class="" action="/questions/<%= @question.id %>/comments" method="post">
+      <%= erb :'partials/_comment', layout: false%>
+    </form>
 
-  <h5>Answers</h5>
+<!-- Answers -->
+  <h4>Answers</h4>
     <%if @answers %>
       <% @answers.each do |answer| %>
-        <h5><%= answer.answer %></h5>  <h6> <em><%=  answer.user.username %></em> </h6>
-        <br>
+        <h5> <%= answer.score %>  <%= answer.answer %> - <em><%=  answer.user.username %></em></h5>
+          <form class="" action="/answers/<%= answer.id %>/votes" method="post">
+              <%= erb :'partials/_buttons', layout: false %>
+          </form>
+<!-- Answer Commments -->
         <ul>
         <% if answer.comments %>
           <% answer.comments.each do |comment| %>
-          <li><%= comment.comment%> -  <em> <%= comment.user.username%></em></li>
+            <li><%= comment.score%>    <%= comment.comment%> -  <em> <%= comment.user.username%></em></li>
+            <form class="" action="/comments/<%= comment.id %>/votes" method="post">
+              <%= erb :'partials/_buttons', layout: false %>
+            </form>
           <% end %>
-        </ul>
         <% end %>
+        </ul>
+<!-- New Answer Comments -->
+        <form class="" action="/answers/<%= answer.id %>/comments" method="post">
+          <%= erb :'partials/_comment', layout: false%>
+        </form>
       <% end %>
     <% end %>
-  </ul>
-
+<!-- New Answer -->
+    <form class="" action="/questions/<%= @question.id %>/answers" method="post">
+    <h4>Your answer</h4>
+    <br>
+    <%= erb :'partials/_errors', layout: false%>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea" name="answer"></textarea>
+            <label for="textarea1">Textarea</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" name="" value="Post answer">
+        </div>
+    </form>
 </div>

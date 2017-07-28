@@ -11,7 +11,6 @@ end
 post '/questions' do
   question = Question.new(params[:question])
   question.user = current_user
-  p question
   if question.save
     redirect "/questions/#{question.id}"
   else
