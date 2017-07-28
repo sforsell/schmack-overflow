@@ -101,3 +101,14 @@ blockquote {
 .divider {
   margin-bottom: 10px;
 }
+
+.hurange {
+  color: #f26539;
+}
+
+.checkmark {
+  color: green;
+  font-size: 1.8em;
+  display: inline;
+  margin-right: 10px;
+}
