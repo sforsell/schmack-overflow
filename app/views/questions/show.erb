@@ -21,7 +21,8 @@
     <% end %>
     </ul>
 <!-- New Question Comment -->
-    <form class="" action="/questions/<%= @question.id %>/comments" method="post">
+<p class="show"> Add comment</p>
+    <form class="comment-form" action="/questions/<%= @question.id %>/comments" method="post">
       <%= erb :'partials/_comment', layout: false%>
     </form>
 
@@ -45,14 +46,15 @@
         <% end %>
         </ul>
 <!-- New Answer Comments -->
-        <form class="" action="/answers/<%= answer.id %>/comments" method="post">
+<p class="show"> Add comment </p>
+        <form class="comment-form" action="/answers/<%= answer.id %>/comments" method="post">
           <%= erb :'partials/_comment', layout: false%>
         </form>
       <% end %>
     <% end %>
 <!-- New Answer -->
-    <form class="" action="/questions/<%= @question.id %>/answers" method="post">
-    <h4>Your answer</h4>
+    <form class="answer-form" action="/questions/<%= @question.id %>/answers" method="post">
+    <h5>Your answer</h5>
     <br>
     <%= erb :'partials/_errors', layout: false%>
         <div class="row">
