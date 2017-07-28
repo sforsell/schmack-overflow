@@ -15,8 +15,6 @@ h3, h2, h4, h5, .errors {
 .q-info {
   margin-bottom: -0.5em;
   color: #19abb5;
-  font-weight: 100;
-
 }
 
 .smaller {
@@ -45,6 +43,8 @@ h3, h2, h4, h5, .errors {
 .a-score {
   color: #19abb5;
   margin-left: 25px;
+  font-size: 0.7em;
+  vertical-align: 0.1em;
 
 }
 
