@@ -1,8 +1,11 @@
-get "users/new" do
+get "/users/new" do
   erb :"/users/new"
 end
 
 get "/users/:id" do
+  p params[:id]
+  p current_user.id
+  p params[:id] == current_user.id
   if params[:id] == current_user.id
     erb :'/users/show'
   else
@@ -20,4 +23,3 @@ post "/users" do
     erb :"users/new"
   end
 end
-
