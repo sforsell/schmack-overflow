@@ -31,6 +31,22 @@ $(".new-comment-button").on("click",function() {
  });
 
 
+  $(".answer-form").on( "submit", function(event){
+    event.preventDefault();
+    var $this = $(this)
+    debugger;
+
+    $.ajax({
+        url: $this.attr("action"),
+        type: $this.attr("method"),
+        data: $this.serialize()
+    })
+    .done(function(response){
+      $(".answer-post-wrapper").append(response);
+
+    })
+  });
+
 
 
 });

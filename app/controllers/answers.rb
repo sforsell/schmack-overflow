@@ -1,11 +1,12 @@
   post '/questions/:id/answers' do
     @question = Question.find(params[:id])
     answer = Answer.new(user: current_user, question: @question, answer: params[:answer])
-    if answer.save
-      redirect "/questions/#{ @question.id}"
+    if request.xhr?
+      if answer.save
+        erb :'/partials/_answer_post', locals: { answer: answer, question: @question }, layout: false
+      end
     else
-      @errors = answer.errors.full_messages
-      erb :'/questions/show'
+      redirect "/questions/#{ @question.id}"
     end
   end
 
