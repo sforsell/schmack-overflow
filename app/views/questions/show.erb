@@ -44,56 +44,14 @@
 
 
 <!-- Answers -->
+<div class="answer-post-wrapper">
   <h4 class="under">Answers</h4>
     <%if @answers %>
       <% @answers.each do |answer| %>
-      <% if current_user == @question.user %>
-      <form class="top-answer" action="/questions/<%= @question.id %>/answers/<%= answer.id %>" method="post" >
-        <input type="hidden" name="_method" value="put"/>
-        <button class="top" type="submit" name="top" value="upvote">Mark as top answer</button>
-      </form>
-      <% end %>
-      <% if answer.top_answer %>
-      <%= answer.top_answer %>
-        <p> top answer </p>
-      <% end %>
-      <div class="button-wrapper">
-
-          <form class="vote_button" action="/answers/<%= answer.id %>/votes" method="post" >
-            <button class="up btn-floating btn-small waves-effect waves-light" type="submit" name="vote" value="upvote">+</button>
-          </form>
-          <form class="vote_button" action="/answers/<%= answer.id %>/votes" method="post" >
-            <button class="down btn-floating btn-small waves-effect waves-light"type="submit" name="vote" value="downvote">-</button>
-          </form>
-          <h5 class="inlining"> <span class="score a-score"><%= answer.score %> </span> <%= answer.answer %> <span class="smaller"> - <%=  answer.user.username %></span></h5>
-        </div>
-<br>
-<!-- Answer Commments -->
-        <% if answer.comments %>
-          <% answer.comments.each do |comment| %>
-          <div class="button-wrapper">
-            <form class="vote_button" action="/comments/<%= comment.id %>/votes" method="post">
-              <button class="c-b up btn-floating btn-small waves-effect waves-light" type="submit" name="vote" value="upvote">+</button>
-            </form>
-            <form class="vote_button" action="/comments/<%= comment.id %>/votes" method="post">
-              <button class="down btn-floating btn-small waves-effect waves-light"type="submit" name="vote" value="downvote">-</button>
-            </form>
-            <blockquote> <span class="score c-score"><%= comment.score%> </span> <%= comment.comment%> <span class="smaller"> -  <%= comment.user.username%></span></blockquote>
-          </div>
-          <% end %>
-        <% end %>
-
-<!-- New Answer Comments -->
-    <div class="comment-wrapper">
-        <button  class="new-comment-button btn-flat">add comment</button>
-        <form class="comment-form" action="/answers/<%= answer.id %>/comments" method="post">
-          <%= erb :'partials/_comment', layout: false%>
-        </form>
-    </div>
-    <div class="divider"></div>
+      <%= erb :'/partials/_answer_post', locals: { answers: @answers, answer: answer, question: @question }, layout: false %>
       <% end %>
     <% end %>
-
+</div>
 
 <!-- New Answer -->
     <form class="answer-form" action="/questions/<%= @question.id %>/answers" method="post">
