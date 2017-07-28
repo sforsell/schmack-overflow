@@ -8,7 +8,7 @@ post '/login' do
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
   else
-    @errors = @user.errors.full_messages
+    @errors = ["something went worng... try again"]
     erb :'/login/new'
   end
 end
