@@ -1,7 +1,36 @@
 .nav-wrapper {
   padding-left: 10px;
+  background-color: #1c2d41;
 }
 
 .list-item {
-  display: inline-block;
+  font-size: 1.4em;
+  color: #9e9e9e;
+
+}
+
+.q-info {
+  margin-bottom: -0.5em;
+  color: #19abb5;
+
+}
+
+.smaller {
+  font-size: 0.9em;
+
+}
+
+.score {
+  vertical-align: 0.2em;
+}
+
+.button, button {
+  background-color: #19abb5;
+}
+
+.btn-small {
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  line-height: 20px;
 }
