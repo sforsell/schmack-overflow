@@ -3,31 +3,40 @@
 
 <div>
   <% if @questions_asked %>
-  <h3> Questions you've asked: </h3>
-  <ul>
+  <div class="divider"></div>
+  <div class="section">
+    <h4> Questions you've asked: </h4>
+
     <% @questions_asked.each do |question| %>
-      <li> <a href="/questions/<%=question.id%>"> <%= question.title %> </a></li>
+       <a href="/questions/<%=question.id%>"> <p class="list-item"> <%= question.title %> </p> </a>
     <% end %>
-  </ul>
+
+  </div>
+  <div class="divider"></div>
   <% end %>
+
   <% if @questions_answered %>
-  <h3> Questions you've answered: </h3>
-    <ul>
+  <div class="section">
+  <h4> Questions you've answered: </h4>
       <% @questions_answered.each do |answer| %>
-        <li> <a href="/questions/<%= answer.question_id %>"> <%= answer.answer %> </a></li>
-        <% end %>
-      </ul>
+        <a href="/questions/<%= answer.question_id %>"> <p class="list-item"> <%= answer.answer %> </p></a>
+      <% end %>
+  </div>
+  <div class="divider"></div>
   <% end %>
+
   <% if @questions_commented %>
-  <h3> Questions and answers you've commented on: </h3>
-  <ul>
+  <div class="section">
+  <h4> Questions and answers you've commented on: </h4>
   <% @questions_commented.each do |comment| %>
     <% if comment.commentable_type == "Answer" %>
-      <li> <a href="/questions/<%= comment.commentable.question_id %>"> <%= comment.comment %> </a></li>
+      <a href="/questions/<%= comment.commentable.question_id %>"> <p class="list-item"> <%= comment.comment %> </p></a>
     <% else %>
-      <li> <a href="/questions/<%= comment.commentable.id %>"> <%= comment.comment %> </a></li>
+      <a href="/questions/<%= comment.commentable.id %>"> <p class="list-item"> <%= comment.comment %> </p></a>
     <% end %>
   <% end %>
-  </ul>
-  <% end %>
+  </div>
+  <div class="divider"></div>
+<% end %>
+
 </div>
