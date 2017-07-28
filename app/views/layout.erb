@@ -10,26 +10,32 @@
   <!--
     application.css is where you put your styles
   -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
 </head>
 <body>
 
-  <div>
-    <a href="/">Home</a> |
+ <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo" href="/">DBC Overflow</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
     <%if current_user%>
-      <a href="/users/<%= current_user.id %>" > Profile</a> |
-      <a href="/logout">Logout</a>
-      <a href="/questions/new">Post a question</a>
+      <li><a href="/users/<%= current_user.id %>" > Profile</a></li>
+      <li><a href="/logout">Logout</a></li>
+      <li><a href="/questions/new">Post a question</a></li>
     <%else%>
-      <a href="/users/new">Registration</a> |
-      <a href="/login">Login</a>
+      <li><a href="/users/new">Registration</a></li>
+      <li><a href="/login">Login</a></li>
     <%end%>
+  </ul>
   </div>
+</nav>
 
 
   <%= yield %>

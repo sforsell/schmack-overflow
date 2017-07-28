@@ -3,10 +3,9 @@ get "/users/new" do
 end
 
 get "/users/:id" do
-  p params[:id]
-  p current_user.id
-  p params[:id] == current_user.id
-  if params[:id] == current_user.id
+
+  if params[:id] == current_user.id.to_s
+
     erb :'/users/show'
   else
     redirect "/questions"
@@ -16,8 +15,9 @@ end
 post "/users" do
   user = User.new(params[:user])
   if user.save
-    redirect "/user/#{user_id}"
     session[:user_id] = user.id
+    redirect "/users/#{user.id}"
+
   else
     @errors = user.errors.full_messages
     erb :"users/new"
