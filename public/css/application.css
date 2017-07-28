@@ -3,7 +3,7 @@
   background-color: #1c2d41;
 }
 
-h3, h2, h4, h5 {
+h3, h2, h4, h5, .errors {
   color: #f26539;
 }
 
@@ -37,4 +37,8 @@ h3, h2, h4, h5 {
   height: 20px;
   font-size: 10px;
   line-height: 20px;
+}
+
+.user-items {
+  padding-left: 25px;
 }
