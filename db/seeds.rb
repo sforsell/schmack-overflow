@@ -25,7 +25,7 @@ answers = []
 end
 
 questions.each do |question|
-    answers << Answer.create(user: users.sample, question: question, answer: Faker::Zelda.game, top_answer: true)
+    answers << Answer.create(user: users.sample, question: question, answer: Faker::Zelda.game, top_answer: false)
 end
 
  votes = [true, false]

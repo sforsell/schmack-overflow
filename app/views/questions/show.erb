@@ -42,6 +42,16 @@
   <h4>Answers</h4>
     <%if @answers %>
       <% @answers.each do |answer| %>
+      <% if current_user == @question.user %>
+      <form class="top-answer" action="/questions/<%= @question.id %>/answers/<%= answer.id %>" method="post" >
+        <input type="hidden" name="_method" value="put"/>
+        <button class="top" type="submit" name="top" value="upvote">Mark as top answer</button>
+      </form>
+      <% end %>
+      <% if answer.top_answer %>
+      <%= answer.top_answer %>
+        <p> top answer </p>
+      <% end %>
       <div class="button-wrapper">
         <h5> <span class="score"><%= answer.score %> </span> <%= answer.answer %> - <em><%=  answer.user.username %></em></h5>
           <form class="vote_button" action="/answers/<%= answer.id %>/votes" method="post" >
@@ -83,7 +93,7 @@
     <%= erb :'partials/_errors', layout: false%>
         <div class="row">
           <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea" name="answer"></textarea>
+            <textarea id="textarea1" class="materialize-textarea" name="answer" required></textarea>
             <label for="textarea1">Textarea</label>
           </div>
         </div>

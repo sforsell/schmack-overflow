@@ -25,6 +25,7 @@ $(".comment-form").hide();
 $(".new-comment-button").on("click",function() {
   var $this = $(this)
   $(".comment-form").hide();
+  $(".new-comment-button").show();
    $this.hide();
    $this.siblings().show();
  });
