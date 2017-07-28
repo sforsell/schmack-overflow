@@ -30,10 +30,12 @@
     <% end %>
     </ul>
 <!-- New Question Comment -->
-<p class="show"> Add comment</p>
-    <form class="comment-form" action="/questions/<%= @question.id %>/comments" method="post">
-      <%= erb :'partials/_comment', layout: false%>
-    </form>
+<div class="comment-wrapper">
+  <button  class="new-comment-button">add comment</button>
+  <form class="comment-form" action="/questions/<%= @question.id %>/comments" method="post">
+    <%= erb :'partials/_comment', layout: false%>
+  </form>
+</div>
 
 
 <!-- Answers -->
@@ -66,10 +68,12 @@
         <% end %>
         </ul>
 <!-- New Answer Comments -->
-<p class="show"> Add comment </p>
+    <div class="comment-wrapper">
+        <button  class="new-comment-button">add comment</button>
         <form class="comment-form" action="/answers/<%= answer.id %>/comments" method="post">
           <%= erb :'partials/_comment', layout: false%>
         </form>
+    </div>
       <% end %>
     <% end %>
 <!-- New Answer -->
