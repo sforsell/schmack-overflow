@@ -9,4 +9,5 @@
       @errors = answer.errors.full_messages
       erb :'/questions/show'
     end
+
   end

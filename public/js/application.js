@@ -4,4 +4,20 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+ $(".vote_button").on("submit", function( event){
+   event.preventDefault();
+  var $this = $(this);
+
+  var data = {vote: $this.children().val()}
+   $.ajax({
+      url: $this.attr("action"),
+      method: $this.attr("method"),
+      data: data
+   })
+   .done(function(response){
+    $($this.parent().find("span")).text(response)
+   })
+ });
+
 });
