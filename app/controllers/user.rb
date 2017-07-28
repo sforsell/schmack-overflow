@@ -3,7 +3,9 @@ get "/users/new" do
 end
 
 get "/users/:id" do
+
   if params[:id] == current_user.id.to_s
+
     erb :'/users/show'
   else
     redirect "/questions"
@@ -21,4 +23,3 @@ post "/users" do
     erb :"users/new"
   end
 end
-
