@@ -1,26 +1,30 @@
 <div>
-  <h2><%= @question.title %></h2>
-  <h3><%= @question.question %></h3>
-  <%= @question.user.username %>
+  <h4><%= @question.title %></h4>
+  <p><%= @question.question %> - <em><%= @question.user.username %></em></p>
+
+
 
   <ul>
     <%if @question.comments %>
       <% @question.comments.each do |comment| %>
-        <li><%= comment.comment%> -  <%= comment.user.username%></li>
+        <li><%= comment.comment%> -  <em><%= comment.user.username%></em></li>
     <% end %>
   <% end %>
 
+  <h5>Answers</h5>
     <%if @answers %>
       <% @answers.each do |answer| %>
-        <h3><%= answer.answer %></h3>
+        <h5><%= answer.answer %></h5>  <h6> <em><%=  answer.user.username %></em> </h6>
+        <br>
         <ul>
         <% if answer.comments %>
           <% answer.comments.each do |comment| %>
-          <li><%= comment.comment%> -  <%= comment.user.username%></li>
+          <li><%= comment.comment%> -  <em> <%= comment.user.username%></em></li>
           <% end %>
         </ul>
         <% end %>
       <% end %>
     <% end %>
   </ul>
+
 </div>
