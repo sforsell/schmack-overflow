@@ -20,4 +20,16 @@ $(document).ready(function() {
    })
  });
 
+$(".comment-form").hide();
+
+$(".new-comment-button").on("click",function() {
+  var $this = $(this)
+  $(".comment-form").hide();
+   $this.hide();
+   $this.siblings().show();
+ });
+
+
+
+
 });
