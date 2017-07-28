@@ -50,15 +50,14 @@
       <% if current_user == @question.user %>
       <form class="top-answer" action="/questions/<%= @question.id %>/answers/<%= answer.id %>" method="post" >
         <input type="hidden" name="_method" value="put"/>
-        <button class="top" type="submit" name="top" value="upvote">Mark as top answer</button>
+        <button class="top btn-flat hurange" type="submit" name="top" value="upvote">-Mark as top answer-</button>
       </form>
       <% end %>
-      <% if answer.top_answer %>
-      <%= answer.top_answer %>
-        <p> top answer </p>
-      <% end %>
-      <div class="button-wrapper">
 
+      <div class="button-wrapper">
+          <% if answer.top_answer %>
+           <p class="checkmark"> &#10003; </p>
+          <% end %>
           <form class="vote_button" action="/answers/<%= answer.id %>/votes" method="post" >
             <button class="up btn-floating btn-small waves-effect waves-light" type="submit" name="vote" value="upvote">+</button>
           </form>
