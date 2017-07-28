@@ -16,7 +16,7 @@ $(document).ready(function() {
       data: data
    })
    .done(function(response){
-    $($this.parent().find("span")).text(response)
+    $($this).parent().find("span.score").text(response)
    })
  });
 

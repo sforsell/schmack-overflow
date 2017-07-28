@@ -4,8 +4,8 @@
   <% if @questions %>
     <% @questions.each do |question| %>
 
-        <p class="q-info"><span class="score"><%= question.score %> </span>
-        <a href = '/questions/<%= question.id %>' <span class="list-item"><%= question.title %></a>
+        <p class="q-info"><span class="m-score"><%= question.score %> </span>
+        <a href = '/questions/<%= question.id %>'> <span class="list-item"><%= question.title %> </span></a>
         <span class="smaller"><%= question.user.username %></span></p>
 
     <% end %>
