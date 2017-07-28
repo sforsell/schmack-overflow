@@ -2,19 +2,19 @@
 <%= erb :'partials/_errors', layout: false%>
 <div class="container">
   <form class="" action="/questions" method="post">
-    <h1>Post a question</h1>
+    <h3>Post a question</h3>
     <hr>
     <div class="form-group">
         <label for="title" >Title</label>
         <input type="text" class="form-control" name="question[title]" value="">
     </div>
 
-    <div class="form-group">
-      <label for="question" >Question</label>
-      <textarea cols="50" rows="6" name="question[question]">
-        Question here.
-      </textarea>
-    </div>
+    <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Textarea</label>
+        </div>
+      </div>
 
     <div class="form-group">
       <input type="submit" class="btn btn-primary" name="" value="Post question">

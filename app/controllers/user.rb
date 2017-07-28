@@ -3,9 +3,11 @@ get "/users/new" do
 end
 
 get "/users/:id" do
-
+  require_user
+  @questions_asked = current_user.questions
+  @questions_answered = current_user.answers
+  @questions_commented = current_user.comments
   if params[:id] == current_user.id.to_s
-
     erb :'/users/show'
   else
     redirect "/questions"
