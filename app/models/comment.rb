@@ -6,15 +6,15 @@ class Comment < ActiveRecord::Base
 
   validates :comment, :user_id, :commentable_id, :commentable_type, presence: true
 
-    def question_id
-      if self.commentable_type == "Question"
-        return self.commentable.id
-      else
-        self.commentable.question_id
-      end
+  def question_id
+    if self.commentable_type == "Question"
+      return self.commentable.id
+    else
+      self.commentable.question_id
     end
+  end
 
-    def score
-      self.votes.where(vote: true).count - self.votes.where(vote: false).count
-    end
+  def score
+    self.votes.where(vote: true).count - self.votes.where(vote: false).count
+  end
 end

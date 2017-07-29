@@ -16,7 +16,7 @@ gem 'pry'
 gem 'pry-byebug'
 
 
-gem 'shotgun', '~>0.9.1'
+gem 'shotgun'
 
 group :test do
   gem 'shoulda-matchers'
@@ -27,5 +27,5 @@ end
 
 group :test, :development do
   gem 'factory_girl'
-  gem 'faker' 
+  gem 'faker'
 end

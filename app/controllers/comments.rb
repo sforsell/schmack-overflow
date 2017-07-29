@@ -15,6 +15,7 @@ post "/answers/:id/comments" do
   @answer = Answer.find_by(id: params[:id])
   comment = @answer.comments.new(user: current_user, comment: params[:comment])
   @question = Question.find(@answer.question_id)
+
   if comment.save
     redirect "/questions/#{@answer.question_id}"
   else

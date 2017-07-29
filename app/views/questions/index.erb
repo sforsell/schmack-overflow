@@ -1,14 +1,10 @@
 <h3 class="center-align"> Questions </h3>
 <div>
-
   <% if @questions %>
     <% @questions.each do |question| %>
-
         <p class="q-info"><span class="m-score"><%= question.score %> </span>
         <a href = '/questions/<%= question.id %>'> <span class="list-item"><%= question.title %> </span></a>
         <span class="smaller"><%= question.user.username %></span></p>
-
     <% end %>
   <% end %>
-
 </div>

@@ -9,4 +9,8 @@ class Question < ActiveRecord::Base
   def score
     self.votes.where(vote: true).count - self.votes.where(vote: false).count
   end
+
+  def top_answer?
+    self.answers.where(top_answer: true).empty?
+  end
 end

@@ -5,11 +5,11 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 
- $(".vote_button").on("submit", function( event){
+ $(".vote-button").on("submit", function( event){
    event.preventDefault();
   var $this = $(this);
-
   var data = {vote: $this.children().val()}
+
    $.ajax({
       url: $this.attr("action"),
       method: $this.attr("method"),
@@ -18,6 +18,7 @@ $(document).ready(function() {
    .done(function(response){
     $($this).parent().find("span.score").text(response)
    })
+
  });
 
 $(".comment-form").hide();
@@ -31,21 +32,33 @@ $(".new-comment-button").on("click",function() {
  });
 
 
-  $(".answer-form").on( "submit", function(event){
-    event.preventDefault();
-    var $this = $(this)
-    debugger;
+$(".answer-form").on( "submit", function(event){
+  event.preventDefault();
+  var $this = $(this)
 
-    $.ajax({
-        url: $this.attr("action"),
-        type: $this.attr("method"),
-        data: $this.serialize()
-    })
-    .done(function(response){
-      $(".answer-post-wrapper").append(response);
-
-    })
+  $.ajax({
+    url: $this.attr("action"),
+    type: $this.attr("method"),
+    data: $this.serialize()
+  })
+  .done(function(response){
+    $(".answer-post-wrapper").append(response);
+    });
   });
+
+  $(".top-answer").on( "", function(event){
+    event.preventDefault();
+    
+
+  })
+
+
+
+
+
+
+
+
 
 
 

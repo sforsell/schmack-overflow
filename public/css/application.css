@@ -80,7 +80,7 @@ h3, h2, h4, h5, .errors {
   margin-bottom: 20px;
 }
 
-form.vote_button {
+form.vote-button {
   display: inline-block;
   margin-bottom: 10px;
 }
