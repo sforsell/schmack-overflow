@@ -1,12 +1,15 @@
 <div class="top-mark-button">
+
+<%if @question.top_answer? %>
   <% if current_user == @question.user %>
     <form class="top-answer" action="/questions/<%= @question.id %>/answers/<%= answer.id %>" method="post" >
       <input type="hidden" name="_method" value="put"/>
       <button class="top" type="submit" name="top" value="upvote">Mark as top answer</button>
     </form>
   <% end %>
+<% end %>
   <% if answer.top_answer %>
-    <p> top answer </p>
+    -top answer
   <% end %>
 </div>
 <div class="button-wrapper">

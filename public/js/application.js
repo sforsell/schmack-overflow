@@ -8,7 +8,7 @@ $(document).ready(function() {
  $(".vote-button").on("submit", function( event){
    event.preventDefault();
   var $this = $(this);
-  var data = {vote: $this.children().val();
+  var data = {vote: $this.children().val()}
 
    $.ajax({
       url: $this.attr("action"),
@@ -45,4 +45,21 @@ $(".answer-form").on( "submit", function(event){
     $(".answer-post-wrapper").append(response);
     });
   });
+
+  $(".top-answer").on( "", function(event){
+    event.preventDefault();
+    
+
+  })
+
+
+
+
+
+
+
+
+
+
+
 });

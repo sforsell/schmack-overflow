@@ -110,7 +110,7 @@ DEPENDENCIES
   rack-test
   rake
   rspec (~> 3.0)
-  shotgun (~> 0.9.1)
+  shotgun
   shoulda-matchers
   sinatra (~> 1.0)
   sinatra-contrib

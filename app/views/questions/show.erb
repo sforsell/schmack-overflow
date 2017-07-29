@@ -5,10 +5,10 @@
   <div class="button-wrapper" id="question-button-wrapper">
     <h4><span class="score q-score"><%= @question.score %></span> <%= @question.title %></h4>
 
-    <form class="vote_button" action="/questions/<%= @question.id %>/votes" method="post">
+    <form class="vote-button" action="/questions/<%= @question.id %>/votes" method="post">
       <button class="up btn-floating btn-small waves-effect waves-light" type="submit" name="vote" value="upvote">+</button>
     </form>
-    <form class="vote_button" action="/questions/<%= @question.id %>/votes" method="post">
+    <form class="vote-button" action="/questions/<%= @question.id %>/votes" method="post">
       <button class="down btn-floating btn-small waves-effect waves-light"type="submit" name="vote" value="downvote">-</button>
     </form>
     <p class="list-item user-items inlining">  <%= @question.question %> <span class="smaller"> - <%= @question.user.username %> </span></p>
@@ -19,10 +19,10 @@
     <%if @question.comments %>
       <% @question.comments.each do |comment| %>
         <div class="button-wrapper">
-          <form class="vote_button" action="/comments/<%= comment.id %>/votes" method="post">
+          <form class="vote-button" action="/comments/<%= comment.id %>/votes" method="post">
             <button class="c-b up btn-floating btn-small waves-effect waves-light" type="submit" name="vote" value="upvote">+</button>
           </form>
-          <form class="vote_button" action="/comments/<%= comment.id %>/votes" method="post">
+          <form class="vote-button" action="/comments/<%= comment.id %>/votes" method="post">
             <button class="down btn-floating btn-small waves-effect waves-light"type="submit" name="vote" value="downvote">-</button>
           </form>
           <blockquote><span class="score c-score"><%= comment.score %> </span> <%= comment.comment%> <span class="smaller"> - <%= comment.user.username%></span></blockquote>
