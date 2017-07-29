@@ -1,9 +1,11 @@
-<div class="form-group">
-  <label for="comment" >Comment</label>
-  <textarea cols="25" rows="3" name="comment">
-  </textarea>
-</div>
 
+<%= erb :'partials/_errors', layout: false%>
+<div class="row">
+  <div class="input-field col s12">
+    <textarea id="textarea1" class="materialize-textarea" name="comment" required></textarea>
+    <label for="textarea1">your comment</label>
+  </div>
+</div>
 <div class="form-group">
-  <input type="submit" class="btn btn-primary" name="" value="add comment">
+  <button class="btn waves-effect waves-light" type="submit" >Submit comment </button>
 </div>

@@ -1,3 +1,114 @@
 .nav-wrapper {
   padding-left: 10px;
+  background-color: #1c2d41;
+}
+
+h3, h2, h4, h5, .errors {
+  color: #f26539;
+}
+
+.list-item {
+  font-size: 1.4em;
+  color: #9e9e9e;
+}
+
+.q-info {
+  margin-bottom: -0.5em;
+  color: #19abb5;
+}
+
+.smaller {
+  font-size: 0.8em;
+  color: #19abb5;
+
+}
+.m-score {
+  vertical-align: 0.2em;
+  color: #19abb5;
+  font-weight: 500;
+}
+
+.inlining {
+  display: inline;
+  margin-left: -20px;
+
+}
+
+.q-score {
+  font-size: 0.7em;
+  vertical-align: 0.2em;
+  color: #19abb5;
+}
+
+.a-score {
+  color: #19abb5;
+  margin-left: 25px;
+  font-size: 0.7em;
+  vertical-align: 0.1em;
+
+}
+
+.c-score{
+  color: #19abb5;
+}
+
+.c-b {
+  margin-left: 30px;
+}
+
+.button, button {
+  background-color: #19abb5;
+}
+
+.btn-small {
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.user-items {
+  padding-left: 25px;
+}
+
+.under {
+  text-decoration: underline;
+}
+
+.comment-form {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+form.vote-button {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.down {
+  margin-right: 10px;
+}
+
+blockquote {
+  display: inline;
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+
+}
+
+.divider {
+  margin-bottom: 10px;
+}
+
+.hurange {
+  color: #f26539;
+}
+
+.checkmark {
+  color: green;
+  font-size: 1.8em;
+  display: inline;
+  margin-right: 10px;
 }

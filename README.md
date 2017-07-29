@@ -1,30 +1,23 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+# SSSSF
+-----
 
-### Purpose
-The Sinatra Skeleton:
+## Team members:
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+* Sara Sulit
+* Steven
+* Sofia Forsell
 
-### Quickstart
+----
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+## user stories
 
-As needed, create models & migrations with the `rake` tasks:
+>A logged in user can see what questions it has asked, what questions it has answered and what questions and questions answers it has commented on
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
+>A user can pick the best answer to its own questions
 
-### Contributing
+>A user cannot pick the best answer on another users question
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
+>A user can see all the questions, answers and comments without logging in but can't add question, comment or answer.
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
+>A user can vote on questions, answers and comments when it is logged in.
 
-Be prepared to give and receive specific, actionable, and kind feedback!

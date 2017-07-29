@@ -1,6 +1,5 @@
 get '/questions' do
   @questions = Question.all
-
   erb :'/questions/index'
 end
 
@@ -11,7 +10,6 @@ end
 post '/questions' do
   question = Question.new(params[:question])
   question.user = current_user
-  p question
   if question.save
     redirect "/questions/#{question.id}"
   else
@@ -34,6 +32,7 @@ put '/questions/:id' do
   @question = Question.find_by(id: params[:id])
   @question.question = params[question][question]
   @question.question = params[question][title]
+  
   if @question.save
     redirect "/questions/#{@question.id}"
   else

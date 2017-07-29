@@ -21,6 +21,7 @@
 </head>
 <body>
 
+
  <nav>
     <div class="nav-wrapper">
       <a href="/" class="brand-logo" href="/">DBC Overflow</a>
@@ -30,14 +31,17 @@
       <li><a href="/logout">Logout</a></li>
       <li><a href="/questions/new">Post a question</a></li>
     <%else%>
-      <li><a href="/users/new">Registration</a></li>
+      <li><a href="/users/new" class="waves-effect btn button">Register</a></li>
       <li><a href="/login">Login</a></li>
     <%end%>
   </ul>
   </div>
 </nav>
 
+<div class="container">
 
   <%= yield %>
+
+</div>
 </body>
 </html>

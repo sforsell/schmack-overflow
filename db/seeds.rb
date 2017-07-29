@@ -25,19 +25,15 @@ answers = []
 end
 
 questions.each do |question|
-    answers << Answer.create(user: users.sample, question: question, answer: Faker::Zelda.game, top_answer: true)
+    answers << Answer.create(user: users.sample, question: question, answer: Faker::Zelda.game, top_answer: false)
 end
 
- votes = [true, false]
-
+votes = [true, false]
 200.times do
-
-
   Vote.create(user: users.sample, votable_id: questions.sample.id, votable_type: "Question", vote: votes.sample)
 end
 
 800.times do
-
   Vote.create(user: users.sample, votable_id: answers.sample.id, votable_type: "Answer", vote: votes.sample)
 end
 

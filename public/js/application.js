@@ -4,4 +4,45 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+ $(".vote-button").on("submit", function( event){
+   event.preventDefault();
+  var $this = $(this);
+  var data = {vote: $this.children().val();
+
+   $.ajax({
+      url: $this.attr("action"),
+      method: $this.attr("method"),
+      data: data
+   })
+   .done(function(response){
+    $($this).parent().find("span.score").text(response)
+   })
+
+ });
+
+$(".comment-form").hide();
+
+$(".new-comment-button").on("click",function() {
+  var $this = $(this)
+  $(".comment-form").hide();
+  $(".new-comment-button").show();
+   $this.hide();
+   $this.siblings().show();
+ });
+
+
+$(".answer-form").on( "submit", function(event){
+  event.preventDefault();
+  var $this = $(this)
+
+  $.ajax({
+    url: $this.attr("action"),
+    type: $this.attr("method"),
+    data: $this.serialize()
+  })
+  .done(function(response){
+    $(".answer-post-wrapper").append(response);
+    });
+  });
 });

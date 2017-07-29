@@ -7,6 +7,7 @@ get "/users/:id" do
   @questions_asked = current_user.questions
   @questions_answered = current_user.answers
   @questions_commented = current_user.comments
+
   if params[:id] == current_user.id.to_s
     erb :'/users/show'
   else
@@ -16,13 +17,10 @@ end
 
 post "/users" do
   user = User.new(params[:user])
+
   if user.save
-
-    redirect "/user/#{user.id}"
-
     session[:user_id] = user.id
     redirect "/users/#{user.id}"
-
   else
     @errors = user.errors.full_messages
     erb :"users/new"
