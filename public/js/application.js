@@ -5,61 +5,82 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 
- $(".vote-button").on("submit", function( event){
-   event.preventDefault();
-  var $this = $(this);
-  var data = {vote: $this.children().val()}
+  $(".vote-button").on("submit", function( event){
+     event.preventDefault();
+    var $this = $(this);
+    var data = {vote: $this.children().val()}
 
-   $.ajax({
-      url: $this.attr("action"),
-      method: $this.attr("method"),
-      data: data
-   })
-   .done(function(response){
-    $($this).parent().find("span.score").text(response)
-   })
+     $.ajax({
+        url: $this.attr("action"),
+        method: $this.attr("method"),
+        data: data
+     })
+     .done(function(response){
+      $($this).parent().find("span.score").text(response)
+     })
 
- });
+   });
 
-$(".comment-form").hide();
-
-$(".new-comment-button").on("click",function() {
-  var $this = $(this)
   $(".comment-form").hide();
-  $(".new-comment-button").show();
-   $this.hide();
-   $this.siblings().show();
- });
 
+  $(".new-comment-button").on("click",function() {
+    var $this = $(this)
+    $(".comment-form").hide();
+    $(".new-comment-button").show();
+     $this.hide();
+     $this.siblings().show();
+   });
 
-$(".answer-form").on( "submit", function(event){
-  event.preventDefault();
-  var $this = $(this)
+  $(".answer-form").on( "submit", function(event){
+      event.preventDefault();
+      var $this = $(this)
 
-  $.ajax({
-    url: $this.attr("action"),
-    type: $this.attr("method"),
-    data: $this.serialize()
-  })
-  .done(function(response){
-    $(".answer-post-wrapper").append(response);
+      $.ajax({
+        url: $this.attr("action"),
+        type: $this.attr("method"),
+        data: $this.serialize()
+      })
+      .done(function(response){
+        console.log(response)
+        $(".answer-post-wrapper").append(response);
+      });
+    });
+
+    // $(".top-answer").on( "", function(event){
+    //   event.preventDefault();
+
+  $(".question-answer-form").on( "submit", function(event){
+      event.preventDefault();
+      var $this = $(this)
+
+    $.ajax({
+      url: $this.attr("action"),
+      type: $this.attr("method"),
+      data: $this.serialize()
+    })
+    .done(function(response){
+      console.log(response);
+      $("#question-comment-wrapper").append(response);
+      $(".comment-form").trigger("reset");
+      $(".comment-form").hide();
+      $(".new-comment-button").show();
     });
   });
 
-  $(".top-answer").on( "", function(event){
-    event.preventDefault();
-    
-
-  })
-
-
-
-
-
-
-
-
-
-
-
+  $(".answer-comment-form").on( "submit", function(event){
+      event.preventDefault();
+      var $this = $(this)
+      $.ajax({
+        url: $this.attr("action"),
+        type: $this.attr("method"),
+        data: $this.serialize()
+      })
+      .done(function(response){
+        console.log(response);
+        $this.closest(".answer-comment-wrapper1").find(".answer-comments-list").append(response);
+        $(".comment-form").trigger("reset");
+        $(".comment-form").hide();
+        $(".new-comment-button").show();
+      });
+    });
 });
